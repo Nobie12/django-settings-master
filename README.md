@@ -99,9 +99,27 @@ Create a `.env` file in the project root:
 
 ## 📚 References
 
--   Django-environ Docs
--   [Python Decouple](https://pypi.org/project/python-decouple/)
--   Django Deployment Checklist
+-   [Django settings setup](https://youtu.be/O4IIBOGFyWI?si=ErjiQ8YGpOdj7fw5)
+
 * * *
 
-✍️ **Author:** Your Name
+- To understand how to manage split settings I'd actually need to understand the following in order.
+1. Understand Django Settings Basics
+2. Learn Environment Variables & Security
+3. Minimal Split Settings Setup
+4. Add Security Practices
+5. Then watch the thenewboston playlist for advanced modularization I guess.
+
+- I will actually link another file for learning the 4 phases.
+- Before moving on with the playlist (5th phase) and putting it into practice.
+
+
+### Roadmap
+- [Phase 1: Django Settings Basics](./Notes/phase-1_django-settings.md)
+- [Phase 2: Env Vars & Security](./Notes/phase-2_env-vars-security.md)
+- [Phase 3: Split Settings](./Notes/phase-3_split-settings.md)
+- [Phase 4: Security Practices](./Notes/phase-4_security-practices.md)
+- [Phase 5: Thenewboston Playlist] - I'll use another repo for this.
+
+
+✍️ **Author:** Ken Aule
