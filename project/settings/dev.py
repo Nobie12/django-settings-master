@@ -22,14 +22,25 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
             "level": env("DJANGO_LOG_LEVEL"),
-            "formatter": "simple"
+            "formatter": "verbose"
+        },
+        "logtail": {
+            "class": "logtail.LogtailHandler",
+            "source_token": env("BETTERSTACK_SOURCE_TOKEN"),
+            "host": "https://" + env("BETTERSTACK_INGESTING_HOST"),
+            "formatter": "verbose"
         }
     },
 
     "loggers": {
-        "": {
+        "logging_test": {
             "level": env("DJANGO_LOG_LEVEL"),
-            "handlers": ["file", "console"],
+            "handlers": ["file", "console", "logtail"],
+        },
+        "logging_test.views": {
+            "level": "INFO",
+            "handlers": ["logtail", "console"],
+            "propagate": False
         }
     },
 
