@@ -1,6 +1,7 @@
 from .base import *
 from .env import env
 
+
 DEBUG = env.bool("DEBUG", default=True)
 ALLOWED_HOSTS = ["*"]
 DATABASES = {
@@ -14,19 +15,33 @@ LOGGING = {
     "handlers": {
         "file": {
             "class": "logging.FileHandler",
-            "filename": "app.log",
-            "level": "DEBUG"
+            "filename": env("DJANGO_LOG_FILE"),
+            "level": env("DJANGO_LOG_LEVEL"),
+            "formatter": "verbose"
         },
         "console": {
             "class": "logging.StreamHandler",
-            "level": "DEBUG"
+            "level": env("DJANGO_LOG_LEVEL"),
+            "formatter": "simple"
         }
     },
 
     "loggers": {
         "": {
-            "level": "DEBUG",
-            "handlers": ["console", "file"],
+            "level": env("DJANGO_LOG_LEVEL"),
+            "handlers": ["file", "console"],
         }
+    },
+
+    "formatters": {
+        "simple": {
+            "format": "{asctime}: {levelname} {message}",
+            "style": "{"
+        },
+        "verbose": {
+            "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        }
+
     }
 }
