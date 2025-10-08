@@ -1,5 +1,14 @@
 .env
-venv
+# Virtual environment
+venv/
+env/
+
+# Log files
+*.log
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Database
 db.sqlite3
